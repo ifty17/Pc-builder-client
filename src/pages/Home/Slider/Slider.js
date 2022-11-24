@@ -1,23 +1,20 @@
 import React from 'react';
 import slider1 from '../../../assets/slider1.jpg'
 import slider2 from '../../../assets/slider2.jpg'
-import slider3 from '../../../assets/slider3.jpg'
+import slider3 from '../../../assets/slider3.jpeg'
 
 const Slider = () => {
     return (
       <div>
         <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full">
-            <img src="https://placeimg.com/800/200/arch" className="w-full" />
+            <img src={slider1} alt="/" className="w-full" />
           </div>
           <div id="item2" className="carousel-item w-full">
-            <img src="https://placeimg.com/800/200/arch" className="w-full" />
+            <img src={slider2} alt="/" className="w-full" />
           </div>
           <div id="item3" className="carousel-item w-full">
-            <img src="https://placeimg.com/800/200/arch" className="w-full" />
-          </div>
-          <div id="item4" className="carousel-item w-full">
-            <img src="https://placeimg.com/800/200/arch" className="w-full" />
+            <img src={slider3} alt="/" className="w-full" />
           </div>
         </div>
         <div className="flex justify-center w-full py-2 gap-2">
@@ -29,9 +26,6 @@ const Slider = () => {
           </a>
           <a href="#item3" className="btn btn-xs">
             3
-          </a>
-          <a href="#item4" className="btn btn-xs">
-            4
           </a>
         </div>
       </div>
