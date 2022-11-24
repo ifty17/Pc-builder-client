@@ -7,9 +7,9 @@ const Category = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() =>{
-        fetch('categories.json')
-        .then(res=> res.json())
-        .then(data =>setCategories(data));
+        fetch("http://localhost:5000/categories")
+          .then((res) => res.json())
+          .then((data) => setCategories(data));
     },[])
 
     return (
@@ -18,7 +18,7 @@ const Category = () => {
           <h3 className="text-2xl font-bold">Featured Category</h3>
           <p>Get Your Desired Product from Featured Category!</p>
         </div>
-        <Link
+        <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 gap-5"
         >
           {categories.map((category) => (
@@ -27,7 +27,7 @@ const Category = () => {
               category={category}
             ></CategoryOptions>
           ))}
-        </Link>
+        </div>
       </div>
     );
 };

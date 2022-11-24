@@ -1,35 +1,48 @@
 [
     {
         "name" : "GIGABYTE H410M H V3 10th Gen Micro ATX Motherboard",
-        "category" : "gigabyte",
+        "category_id" : "gigabyte",
         "image" : " https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/h410m-h-v3/h410m-h-v3-01-500x500.webp",
-        "location" : " ",
-        "resale_price" : " ",
-        "original_price" : " ",
-        "years_used" : " ",
-        "post_time" : " ",
-        "seller_name" : " "
+        "location" : "Dhaka",
+        "resale_price" : "500",
+        "original_price" : "1000",
+        "years_used" : "2",
+        "post_time" : "11 nov 2022",
+        "seller_name" : "Rahat",
+        "purchase_year": "2021",
+        "condition": "good",
+        "number" : "0177777",
+        "details": "Motherboard with good condition for sell. Box, Storage cable, other papers will be provided."
+
     },
     {
-        "name" : " ASUS MOBO",
-        "category" : "asus",
-        "image" : "https://www.startech.com.bd/image/cache/catalog/bundle-offer/asus-x-team/asus-rog-maximus-z690-hero-and-team-delta-ddr5-ram-bundle/asus-rog-maximus-z690-hero-and-team-delta-ddr5-ram-bundle-01-228x228.jpg",
-        "location" : " ",
-        "resale_price" : " ",
-        "original_price" : " ",
-        "years_used" : " ",
-        "post_time" : " ",
-        "seller_name" : " "
+      "name": " ASUS MOBO",
+      "category_id": "asus",
+      "image": "https://www.startech.com.bd/image/cache/catalog/bundle-offer/asus-x-team/asus-rog-maximus-z690-hero-and-team-delta-ddr5-ram-bundle/asus-rog-maximus-z690-hero-and-team-delta-ddr5-ram-bundle-01-228x228.jpg",
+      "location": "Dhaka",
+      "resale_price": "500",
+      "original_price": "1000",
+      "years_used": "2",
+      "post_time": "11 nov 2022",
+      "seller_name": "Rahat",
+      "purchase_year": "2021",
+      "condition": "good",
+      "number": "0177777",
+      "details": "Motherboard with good condition for sell. Box, Storage cable, other papers will be provided."
     },
     {
-        "name" : " MSI MOBO",
-        "category" : "msi",
-        "image" : "https://www.startech.com.bd/image/cache/catalog/motherboard/msi/a320m-a-pro/a320m-a-pro-228x228.jpg",
-        "location" : " ",
-        "resale_price" : " ",
-        "original_price" : " ",
-        "years_used" : " ",
-        "post_time" : " ",
-        "seller_name" : " "
+      "name": " MSI MOBO",
+      "category_id": "msi",
+      "image": "https://www.startech.com.bd/image/cache/catalog/motherboard/msi/a320m-a-pro/a320m-a-pro-228x228.jpg",
+      "location": "Dhaka",
+      "resale_price": "500",
+      "original_price": "1000",
+      "years_used": "2",
+      "post_time": "11 nov 2022",
+      "seller_name": "Rahat",
+      "purchase_year": "2021",
+      "condition": "good",
+      "number": "0177777",
+      "details": "Motherboard with good condition for sell. Box, Storage cable, other papers will be provided."
     }
 ]
