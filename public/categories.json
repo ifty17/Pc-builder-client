@@ -1,0 +1,17 @@
+[
+    {
+        "category" : "gigabyte",
+        "name" : "GIGABYTE",
+        "image" : "https://i.ibb.co/nPtbKhL/Ve33bu-Gl-SPLl-BO6-OE6qp-JSf9crppt-Nc6-AItvq-Gn-F.png"
+    },
+    {
+        "category" : "asus",
+        "name" : "ASUS",
+        "image" : "https://i.ibb.co/kD7T61X/asuslogo.jpg"
+    },
+    {
+        "category" : "msi",
+        "name" : "MSI",
+        "image" : "https://i.ibb.co/yFVmk0q/msi.png"
+    }
+]
