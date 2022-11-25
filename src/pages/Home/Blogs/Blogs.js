@@ -1,9 +1,16 @@
 import React from 'react';
 
 const Blogs = () => {
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const selec = event.target.sel.value;
+        console.log(selec);
+    } 
+
     return (
-      <div>
-        <select className="select w-full max-w-xs">
+      <form onSubmit={handleSubmit}>
+        <select name="sel" className="select w-full max-w-xs">
           <option disabled selected>
             Pick your favorite Simpson
           </option>
@@ -13,7 +20,8 @@ const Blogs = () => {
           <option>Lisa</option>
           <option>Maggie</option>
         </select>
-      </div>
+        <button className="btn btn-outline">Submit</button>
+      </form>
     );
 };
 
