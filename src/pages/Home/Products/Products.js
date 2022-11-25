@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Product from './Product';
 
 const Products = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  const components = useLoaderData();
+  console.log(components);
+  return (
+    <div>
+        {
+            components?.map(component => <Product
+            key={component._id}
+            component={component}
+            >
+            </Product>)
+        }
+    </div>
+  );
 };
 
 export default Products;
