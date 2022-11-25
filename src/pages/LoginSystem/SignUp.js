@@ -1,7 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
+    const { createUser } = useContext(AuthContext);
+
+    // const location = useLocation();
+    // const navigate = useNavigate();
+    // const [error, setError] = useState("");
+    // const from = location.state?.from?.pathname || "/";
+
+    const handleSignUp = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const role = form.role.value;
+        const image = form.image.files[0];
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, role, image, email, password);
+
+        createUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+
+    }
+
+
+
     return (
       <div className="flex justify-center items-center py-8">
         <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -9,7 +41,7 @@ const SignUp = () => {
             <h1 className="my-3 text-4xl font-bold">Signup</h1>
             <p className="text-sm text-gray-400">Create a new account</p>
           </div>
-          <form
+          <form onSubmit={handleSignUp}
             noValidate=""
             action=""
             className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -34,7 +66,7 @@ const SignUp = () => {
                   Select account type
                 </label>
                 <select
-                  name="sel"
+                  name="role"
                   required
                   className="select select-primary w-full max-w-xs"
                 >
