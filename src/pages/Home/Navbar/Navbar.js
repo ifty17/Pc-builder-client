@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+     logOut()
+       .then(() => {})
+       .catch((error) => console.error(error));
+  }
+
     const navItems = (
       <React.Fragment>
         <li>
@@ -15,7 +25,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          {/* {user?.uid ? (
+          {user?.uid ? (
             <>
               <Link to="/dashboard">Dashboard</Link>
 
@@ -23,12 +33,12 @@ const Navbar = () => {
             </>
           ) : (
             <Link to="/login">Login</Link>
-          )} */}
+          )}
         </li>
       </React.Fragment>
     );
     return (
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 flex justify-between">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,18 +61,15 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-                {navItems}
+              {navItems}
             </ul>
           </div>
-          <a className="btn btn-outline normal-case text-xl">daisyUI</a>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            PC Builder
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            {navItems}
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <Link to='/login' className="btn btn-outline btn-primary">Login now</Link>
+          <ul className="menu menu-horizontal p-0">{navItems}</ul>
         </div>
       </div>
     );

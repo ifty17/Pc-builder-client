@@ -1,21 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
+
+    const { loginUser, googleSignIn, setLoading } = useContext(AuthContext);
+     const [error, setError] = useState("");
+     console.log(error);
+     const location = useLocation();
+     const navigate = useNavigate();
+     const from = location.state?.from?.pathname || "/";
+
+    const handleLogin = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            setError('')
+            toast.success('User loggedIn successfully');
+            navigate(from, { replace: true });
+        })
+        .catch(error =>{
+            console.log(error);
+            setError(error.message);
+            // toast.error({error});
+        })
+    };
+
+    const handleGoogleLogin = () => {
+        googleSignIn()
+          .then((result) => {
+            console.log(result);
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(error.message);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+    };
+
     return (
       <div className="flex justify-center items-center py-8">
         <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold">Login</h1>
-            <p className="text-sm text-gray-400">Login here with your account</p>
+            <p className="text-sm text-gray-400">
+              Login here with your account
+            </p>
           </div>
           <form
+            onSubmit={handleLogin}
             noValidate=""
             action=""
             className="space-y-12 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-4">
-              
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm">
                   Email address
@@ -66,6 +114,7 @@ const Login = () => {
           </div>
           <div className="flex justify-center space-x-4">
             <button
+              onClick={handleGoogleLogin}
               aria-label="Log in with Google"
               className="p-3 flex justify-center rounded-sm"
             >
@@ -79,8 +128,13 @@ const Login = () => {
             </button>
           </div>
           <p className="px-6 text-sm text-center text-gray-400">
-            Don't have an account yet? <Link to="/signUp" className="hover:underline text-gray-600">Sign In</Link>.
+            Don't have an account yet?{" "}
+            <Link to="/signUp" className="hover:underline text-gray-600">
+              Sign In
+            </Link>
+            .
           </p>
+          <p className='py-3 text-red-600'>{error}</p>
         </div>
       </div>
     );

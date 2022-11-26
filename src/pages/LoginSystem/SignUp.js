@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import toast from "react-hot-toast";
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSignIn, setLoading, updateUserProfile } =
+      useContext(AuthContext);
 
-    // const location = useLocation();
-    // const navigate = useNavigate();
-    // const [error, setError] = useState("");
-    // const from = location.state?.from?.pathname || "/";
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const from = location.state?.from?.pathname || "/";
 
     const handleSignUp = event =>{
         event.preventDefault();
@@ -21,16 +23,56 @@ const SignUp = () => {
 
         console.log(name, role, image, email, password);
 
-        createUser(email, password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+       
+         const formData = new FormData();
+         formData.append("image", image);
 
-    }
+         const url =
+           "https://api.imgbb.com/1/upload?key=81c077d88a2ff4a629a342194065431e";
+
+         fetch(url, {
+           method: "POST",
+           body: formData,
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             console.log(data.data.display_url);
+             createUser(email, password)
+               .then((result) => {
+                 updateUserProfile(name, data.data.display_url)
+                 .then(result =>{
+                     navigate(from, { replace: true });
+                     form.reset();
+                     setError("");
+                     navigate(from, { replace: true });
+                     toast.success("User created successfully");
+                    })
+                    const user = result.user;
+                    console.log(user);
+               })
+               .catch((err) => {
+                 console.error(err);
+                 setLoading(false);
+                 setError(err.message);
+               });
+           })
+           .catch((err) => console.log(err));
+
+
+    };
+
+     const handleGoogleLogin = () => {
+       googleSignIn()
+         .then((result) => {
+           console.log(result);
+           setError('')
+           navigate(from, { replace: true });
+         })
+         .catch((error) => {
+           console.error(error);
+           setError(error.message);
+         });
+     };
 
 
 
@@ -41,7 +83,8 @@ const SignUp = () => {
             <h1 className="my-3 text-4xl font-bold">Signup</h1>
             <p className="text-sm text-gray-400">Create a new account</p>
           </div>
-          <form onSubmit={handleSignUp}
+          <form
+            onSubmit={handleSignUp}
             noValidate=""
             action=""
             className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -128,6 +171,7 @@ const SignUp = () => {
               </div>
             </div>
           </form>
+          
           <div className="flex items-center pt-4 space-x-1">
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
             <p className="px-3 text-sm dark:text-gray-400">
@@ -137,6 +181,7 @@ const SignUp = () => {
           </div>
           <div className="flex justify-center space-x-4">
             <button
+              onClick={handleGoogleLogin}
               aria-label="Log in with Google"
               className="p-3 flex justify-center rounded-sm"
             >
@@ -156,6 +201,7 @@ const SignUp = () => {
             </Link>
             .
           </p>
+          <p className='py-3 text-red-600'>{error}</p>
         </div>
       </div>
     );
