@@ -18,7 +18,12 @@ const AllProduct = ({ product, setBookedProduct }) => {
         <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{name}</h2>
+        <div className="flex justify-between items-center">
+          <h2 className="card-title">{name}</h2>
+          <button className="btn btn-xs btn-outline btn-primary">
+            Add to wishlist
+          </button>
+        </div>
         <p>Selling price: ${resale_price}</p>
         <p>Original price: ${original_price}</p>
         <p>Years of user: {years_used} years</p>

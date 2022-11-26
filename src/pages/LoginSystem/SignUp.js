@@ -82,22 +82,24 @@ const SignUp = () => {
 
 
     };
-
-     const handleGoogleLogin = () => {
-       googleSignIn()
+    
+    
+    const handleGoogleLogin = () => {
+      googleSignIn()
          .then((result) => {
-          const user = result.user;
-           console.log(user);
-           setError('')
-           navigate(from, { replace: true });
+           const user = result.user;
+          //  console.log(user);
+          setError('')
+          navigate(from, { replace: true });
           })
           .catch((error) => {
             console.error(error);
             setError(error.message);
             setLoading(false);
-         });
-         
-     };
+          });
+          
+        };
+        
 
 
 
