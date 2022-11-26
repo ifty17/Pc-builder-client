@@ -20,8 +20,7 @@ const SignUp = () => {
         const image = form.image.files[0];
         const email = form.email.value;
         const password = form.password.value;
-
-        console.log(name, role, image, email, password);
+        // console.log(name, role, image, email, password);
 
        
          const formData = new FormData();
@@ -57,6 +56,23 @@ const SignUp = () => {
                });
            })
            .catch((err) => console.log(err));
+
+
+
+            const user = {
+              name,
+              email,
+              role,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(user),
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data));
 
 
     };
