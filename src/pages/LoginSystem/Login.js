@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const Login = () => {
 
-    const { loginUser, googleSignIn, setLoading } = useContext(AuthContext);
+    const { loginUser, googleSignIn, setLoading, loading } = useContext(AuthContext);
      const [error, setError] = useState("");
      console.log(error);
      const location = useLocation();
@@ -29,14 +30,17 @@ const Login = () => {
         .catch(error =>{
             console.log(error);
             setError(error.message);
+            setLoading(false)
             // toast.error({error});
         })
     };
 
     const handleGoogleLogin = () => {
+      
         googleSignIn()
           .then((result) => {
-            console.log(result);
+            const user = result.user;
+            console.log(user.displayName, user.email);
             navigate(from, { replace: true });
           })
           .catch((error) => {
@@ -100,7 +104,7 @@ const Login = () => {
                   type="submit"
                   className="btn btn-primary w-full btn-outline"
                 >
-                  Login
+                  {loading ? <LoadingSpinner></LoadingSpinner> : "Login"}
                 </button>
               </div>
             </div>
@@ -134,7 +138,7 @@ const Login = () => {
             </Link>
             .
           </p>
-          <p className='py-3 text-red-600'>{error}</p>
+          <p className="py-3 text-red-600">{error}</p>
         </div>
       </div>
     );

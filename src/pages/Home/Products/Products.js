@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Modal from './Modal';
 import Product from './Product';
 
 const Products = () => {
   const components = useLoaderData();
+  const [bookingProduct, setBookingProduct] = useState(null);
   console.log(components);
   return (
-    <div>
-        {
-            components?.map(component => <Product
+    <section>
+      <div>
+        {components?.map((component) => (
+          <Product
             key={component._id}
             component={component}
-            >
-            </Product>)
-        }
-    </div>
+            setBookingProduct={setBookingProduct}
+          ></Product>
+        ))}
+      </div>
+      {
+        <Modal
+        bookingProduct={bookingProduct}
+        setBookingProduct={setBookingProduct}
+        ></Modal>
+      }
+    </section>
   );
 };
 

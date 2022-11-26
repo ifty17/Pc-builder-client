@@ -21,6 +21,10 @@ const Blogs = () => {
           <option>Maggie</option>
         </select>
         <button className="btn btn-outline">Submit</button>
+       
+        <div className="flex justify-center items-center h-full">
+          <div className="w-6 h-6 border-2 border-dashed rounded-full animate-spin border-primary"></div>
+        </div>
       </form>
     );
 };

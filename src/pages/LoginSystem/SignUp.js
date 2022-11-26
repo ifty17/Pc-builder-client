@@ -2,10 +2,16 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import toast from "react-hot-toast";
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const SignUp = () => {
-    const { createUser, googleSignIn, setLoading, updateUserProfile } =
-      useContext(AuthContext);
+    const {
+      createUser,
+      googleSignIn,
+      setLoading,
+      updateUserProfile,
+      loading,
+    } = useContext(AuthContext);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -60,7 +66,7 @@ const SignUp = () => {
 
 
             const user = {
-              name,
+              displayName : name,
               email,
               role,
             };
@@ -80,14 +86,17 @@ const SignUp = () => {
      const handleGoogleLogin = () => {
        googleSignIn()
          .then((result) => {
-           console.log(result);
+          const user = result.user;
+           console.log(user);
            setError('')
            navigate(from, { replace: true });
-         })
-         .catch((error) => {
-           console.error(error);
-           setError(error.message);
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(error.message);
+            setLoading(false);
          });
+         
      };
 
 
@@ -182,12 +191,12 @@ const SignUp = () => {
                   type="submit"
                   className="btn btn-primary w-full btn-outline"
                 >
-                  Sign Up
+                  {loading ? <LoadingSpinner></LoadingSpinner> : "Sign Up"}
                 </button>
               </div>
             </div>
           </form>
-          
+
           <div className="flex items-center pt-4 space-x-1">
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
             <p className="px-3 text-sm dark:text-gray-400">
@@ -217,7 +226,7 @@ const SignUp = () => {
             </Link>
             .
           </p>
-          <p className='py-3 text-red-600'>{error}</p>
+          <p className="py-3 text-red-600">{error}</p>
         </div>
       </div>
     );

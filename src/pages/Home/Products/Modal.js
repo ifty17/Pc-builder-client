@@ -1,14 +1,14 @@
 import React from 'react';
 
-const BookingModal = () => {
+const Modal = () => {
     return (
       <div>
         {/* Put this part before </body> tag */}
-        <input type="checkbox" id="booking-modal" className="modal-toggle" />
+        <input type="checkbox" id="modal-booking" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box relative">
             <label
-              htmlFor="booking-modal"
+              htmlFor="modal-booking"
               className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕
@@ -26,4 +26,4 @@ const BookingModal = () => {
     );
 };
 
-export default BookingModal;
+export default Modal;
