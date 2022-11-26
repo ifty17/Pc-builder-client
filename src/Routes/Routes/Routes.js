@@ -1,11 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import Dashboard from "../../pages/Dashboard/Dashboard";
 import Blogs from "../../pages/Home/Blogs/Blogs";
 import Home from "../../pages/Home/Home";
 import AllProducts from "../../pages/Home/Products/AllProducts";
 import Products from "../../pages/Home/Products/Products";
 import Login from "../../pages/LoginSystem/Login";
 import SignUp from "../../pages/LoginSystem/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,26 +21,49 @@ const router = createBrowserRouter([
       },
       {
         path: "/products/:id",
-        element: <Products></Products>,
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Products></Products>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
-        path: '/products',
-        element: <AllProducts></AllProducts>
+        path: "/products",
+        element: (
+          <PrivateRoute>
+            <AllProducts></AllProducts>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/blogs',
-        element: <Blogs></Blogs>
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/signUp',
-        element: <SignUp></SignUp>
+        path: "/signUp",
+        element: <SignUp></SignUp>,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path:'/dashboard',
+        element: <Dashboard></Dashboard>
+      }
+    ]
   },
 ]);
 

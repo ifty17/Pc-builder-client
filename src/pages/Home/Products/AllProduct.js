@@ -27,7 +27,7 @@ const AllProduct = ({product}) => {
           <p> {details}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-outline btn-primary w-full">
-              Buy Now
+              Book Now
             </button>
           </div>
         </div>

@@ -28,7 +28,7 @@ const Product = ({ component }) => {
         <p>Seller Name: {seller_name}</p>
         <p> {details}</p>
         <div className="card-actions justify-center">
-          <button className="btn btn-outline btn-primary w-full">Buy Now</button>
+          <button className="btn btn-outline btn-primary w-full">Book Now</button>
         </div>
       </div>
     </div>
