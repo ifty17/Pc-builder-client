@@ -9,7 +9,7 @@ const Products = () => {
   console.log(components);
   return (
     <section>
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
         {components?.map((component) => (
           <Product
             key={component._id}
@@ -18,13 +18,12 @@ const Products = () => {
           ></Product>
         ))}
       </div>
-      {
-        bookingProduct &&
+      {bookingProduct && (
         <Modal
-        bookingProduct={bookingProduct}
-        setBookingProduct={setBookingProduct}
+          bookingProduct={bookingProduct}
+          setBookingProduct={setBookingProduct}
         ></Modal>
-      }
+      )}
     </section>
   );
 };

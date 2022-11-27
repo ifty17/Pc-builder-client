@@ -7,9 +7,13 @@ const DashboardLayout = () => {
     <div>
       <Navbar></Navbar>
       <div className="drawer drawer-mobile">
-        <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
+        <input
+          id="dashboard-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+        />
         <div className="drawer-content">
-            <Outlet></Outlet>
+          <Outlet></Outlet>
           <label
             htmlFor="dashboard-drawer"
             className="btn btn-primary drawer-button lg:hidden"
@@ -21,13 +25,13 @@ const DashboardLayout = () => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             <li>
-              <Link to={'/dashboard'}>Dashboard Home</Link>
+              <Link to={"/dashboard"}>Dashboard Home</Link>
             </li>
             <li>
-              <Link to={'/dashboard/myorders'}>My Orders</Link>
+              <Link to={"/dashboard/myorders"}>My Orders</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link to={"/dashboard/addproduct"}>Add a product</Link>
             </li>
             <li>
               <a>Sidebar Item 2</a>
