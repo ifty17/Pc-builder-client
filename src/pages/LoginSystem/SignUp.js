@@ -69,6 +69,7 @@ const SignUp = () => {
               displayName : name,
               email,
               role,
+              photoURL: image,
             };
             fetch("http://localhost:5000/users", {
               method: "POST",
@@ -90,7 +91,7 @@ const SignUp = () => {
            const user = result.user;
           //  console.log(user);
           setError('')
-          navigate(from, { replace: true });
+          name(user);
           })
           .catch((error) => {
             console.error(error);
@@ -99,6 +100,30 @@ const SignUp = () => {
           });
           
         };
+
+
+         const name = (user) => {
+           const userInfo = {
+             displayName: user?.displayName,
+             email: user?.email,
+             photoURL: user?.photoURL,
+             role: "buyer",
+           };
+           console.log(userInfo);
+
+           fetch("http://localhost:5000/users", {
+             method: "POST",
+             headers: {
+               "content-type": "application/json",
+             },
+             body: JSON.stringify(userInfo),
+           })
+             .then((res) => res.json())
+             .then((data) => {
+               console.log(data);
+               navigate(from, { replace: true });
+             });
+         };
         
 
 

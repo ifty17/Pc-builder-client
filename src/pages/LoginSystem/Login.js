@@ -41,7 +41,8 @@ const Login = () => {
           .then((result) => {
             const user = result.user;
             console.log(user.displayName, user.email);
-            navigate(from, { replace: true });
+            name(user);
+            
           })
           .catch((error) => {
             console.error(error);
@@ -51,6 +52,28 @@ const Login = () => {
             setLoading(false);
           });
     };
+    const name = (user) =>{
+      const userInfo = {
+        displayName: user?.displayName,
+        email: user?.email,
+        photoURL: user?.photoURL,
+        role: "buyer"
+      }
+      console.log(userInfo);
+
+     fetch("http://localhost:5000/users", {
+       method: "POST",
+       headers: {
+         "content-type": "application/json",
+       },
+       body: JSON.stringify(userInfo),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+        console.log(data)
+        navigate(from, { replace: true });
+      });
+    }
 
     return (
       <div className="flex justify-center items-center py-8">
