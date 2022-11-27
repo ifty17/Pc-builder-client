@@ -41,7 +41,7 @@ const Login = () => {
           .then((result) => {
             const user = result.user;
             console.log(user.displayName, user.email);
-            name(user);
+            googleUser(user);
             
           })
           .catch((error) => {
@@ -52,28 +52,35 @@ const Login = () => {
             setLoading(false);
           });
     };
-    const name = (user) =>{
+
+    const isUserAvailable = user =>{
+      
+    }
+
+
+    const googleUser = (user) => {
       const userInfo = {
         displayName: user?.displayName,
         email: user?.email,
         photoURL: user?.photoURL,
-        role: "buyer"
-      }
+        role: "buyer",
+      };
       console.log(userInfo);
 
-     fetch("http://localhost:5000/users", {
-       method: "POST",
-       headers: {
-         "content-type": "application/json",
-       },
-       body: JSON.stringify(userInfo),
-     })
-       .then((res) => res.json())
-       .then((data) => {
-        console.log(data)
-        navigate(from, { replace: true });
-      });
-    }
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast.success('User logged In successfully')
+          navigate(from, { replace: true });
+        });
+    };
 
     return (
       <div className="flex justify-center items-center py-8">

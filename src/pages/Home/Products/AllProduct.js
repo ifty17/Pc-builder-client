@@ -11,6 +11,7 @@ const AllProduct = ({ product, setBookedProduct }) => {
     seller_name,
     name,
     details,
+    _id
   } = product;
   return (
     <div className="card card-compact my-3 md:h-[70%]  border bg-base-100 shadow-xl">
