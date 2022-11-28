@@ -1,6 +1,6 @@
 import React from "react";
 
-const AllProduct = ({ product, setBookedProduct, setAddToWishlist }) => {
+const AllProduct = ({ product, setBookedProduct }) => {
   const {
     name,
     category_id,
@@ -36,7 +36,7 @@ const AllProduct = ({ product, setBookedProduct, setAddToWishlist }) => {
         <p>Seller contact number: {number}</p>
         <p>Years of user: {years_used} years</p>
         <p>Sell post date: {post_time}</p>
-        <p>Seller Name: {seller_name}</p>
+        <p>Seller Name: {seller_name} </p>
         <p>Location: {location}</p>
         <p>Purchase Year: {purchaseYear}</p>
         <p> Details: {details}</p>

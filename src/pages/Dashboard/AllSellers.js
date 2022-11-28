@@ -35,6 +35,7 @@ const AllSellers = () => {
               <th>Seller Image</th>
               <th>Seller Name</th>
               <th>Seller Email</th>
+              <th>Verify Seller</th>
               <th>Delete Seller</th>
             </tr>
           </thead>
@@ -45,6 +46,7 @@ const AllSellers = () => {
                 <td><img className='w-16 rounded-full' src={allseller?.image} alt="" /></td>
                 <td>{allseller?.displayName}</td>
                 <td>{allseller?.email}</td>
+                <td><button className='btn btn-xs btn-outline'>Verify</button></td>
                 <td><button onClick={() => handleDeleteSeller(allseller) } className='btn btn-xs btn-outline'>Delete Seller</button></td>
               </tr>
             ))}
