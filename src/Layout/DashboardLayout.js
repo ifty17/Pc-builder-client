@@ -31,13 +31,13 @@ const DashboardLayout = () => {
               <Link to={"/dashboard/myorders"}>My Orders</Link>
             </li>
             <li>
-              <Link to={"/dashboard/addproduct"}>Add a product</Link>
+              <Link to={"/dashboard/addproduct"}>Add a Product</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link to={"/dashboard/myproducts"}>My Products</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link to="/dashboard/allsellers">All Sellers</Link>
             </li>
             <li>
               <a>Sidebar Item 2</a>

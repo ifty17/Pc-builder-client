@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import LoadingSpinner from "../Components/LoadingSpinner";
 
 const AddProduct = () => {
+    const navigate = useNavigate();
   const { loading, setLoading } = useContext(AuthContext);
   const { user } = useContext(AuthContext);
   const handleAddProduct = (event) => {
@@ -48,10 +50,12 @@ const AddProduct = () => {
           number,
           location,
           seller_name: user?.displayName,
+          email: user?.email,
           purchaseYear,
           details,
           years_used,
           post_time,
+          status: 'available'
         };
         console.log(productInfo);
 
@@ -67,6 +71,8 @@ const AddProduct = () => {
             console.log(data);
             toast.success("Product added successfully");
             setLoading(false);
+            navigate('/dashboard/myproducts')
+            form.reset();
           });
       });
   };
