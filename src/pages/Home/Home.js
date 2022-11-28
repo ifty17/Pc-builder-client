@@ -1,4 +1,5 @@
 import React from 'react';
+import Advertised from './Advertised/Advertised';
 import Category from './Category/Category';
 import Footer from './Footer/Footer';
 import HeroSection from './HeroSection/HeroSection';
@@ -11,6 +12,7 @@ const Home = () => {
             <Slider></Slider>
             <Category></Category>
             <HeroSection></HeroSection>
+            <Advertised></Advertised>
         </div>
     );
 };

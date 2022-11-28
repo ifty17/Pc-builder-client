@@ -24,6 +24,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             setError('')
+            toast.success('User logged in successful');
             navigate(from, { replace: true });
         })
         .catch(error =>{
@@ -60,6 +61,7 @@ const Login = () => {
           if (data.length) {
             toast.success("User loggedIn successfully");
             return navigate('/');
+
           }
           googleUser(user);
         });

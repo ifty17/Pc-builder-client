@@ -18,9 +18,10 @@ const AllBuyers = () => {
           <thead>
             <tr>
               <th></th>
+              <th>Buyer Image</th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
+              <th>Delete Buyer</th>
             </tr>
           </thead>
           <tbody>
