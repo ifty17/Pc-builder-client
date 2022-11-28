@@ -24,7 +24,6 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             setError('')
-            toast.success('User loggedIn successfully');
             navigate(from, { replace: true });
         })
         .catch(error =>{
@@ -41,7 +40,7 @@ const Login = () => {
           .then((result) => {
             const user = result.user;
             console.log(user.displayName, user.email);
-            googleUser(user);
+            isUserAvailable(user)
             
           })
           .catch((error) => {
@@ -54,7 +53,16 @@ const Login = () => {
     };
 
     const isUserAvailable = user =>{
-      
+      fetch(`http://localhost:5000/users?email=${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.length) {
+            toast.success("User loggedIn successfully");
+            return navigate('/');
+          }
+          googleUser(user);
+        });
     }
 
 
@@ -62,7 +70,7 @@ const Login = () => {
       const userInfo = {
         displayName: user?.displayName,
         email: user?.email,
-        photoURL: user?.photoURL,
+        image: user?.photoURL,
         role: "buyer",
       };
       console.log(userInfo);
@@ -77,7 +85,7 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          toast.success('User logged In successfully')
+          toast.success('User created successful')
           navigate(from, { replace: true });
         });
     };

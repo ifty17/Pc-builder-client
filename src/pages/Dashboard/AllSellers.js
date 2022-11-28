@@ -19,6 +19,7 @@ const AllSellers = () => {
           <thead>
             <tr>
               <th></th>
+              <th>Seller Image</th>
               <th>Seller Name</th>
               <th>Seller Email</th>
               <th>Delete Seller</th>
@@ -28,6 +29,7 @@ const AllSellers = () => {
             {allsellers.map((allseller) => (
               <tr key={allseller._id}>
                 <th>1</th>
+                <td><img className='w-16 rounded-full' src={allseller.image} alt="" /></td>
                 <td>{allseller.displayName}</td>
                 <td>{allseller.email}</td>
                 <td><button className='btn btn-xs btn-outline'>Delete Seller</button></td>

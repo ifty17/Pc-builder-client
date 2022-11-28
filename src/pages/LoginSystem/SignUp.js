@@ -51,6 +51,21 @@ const SignUp = () => {
                      setError("");
                      navigate(from, { replace: true });
                      toast.success("User created successfully");
+                     const user = {
+                       displayName: name,
+                       email,
+                       role,
+                       image: data.data.display_url,
+                     };
+                     fetch("http://localhost:5000/users", {
+                       method: "POST",
+                       headers: {
+                         "content-type": "application/json",
+                       },
+                       body: JSON.stringify(user),
+                     })
+                       .then((res) => res.json())
+                       .then((data) => console.log(data));
                     })
                     const user = result.user;
                     console.log(user);
@@ -65,20 +80,6 @@ const SignUp = () => {
 
 
 
-            const user = {
-              displayName : name,
-              email,
-              role,
-            };
-            fetch("http://localhost:5000/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(user),
-            })
-              .then((res) => res.json())
-              .then((data) => console.log(data));
 
 
     };
