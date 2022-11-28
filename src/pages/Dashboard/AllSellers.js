@@ -7,14 +7,14 @@ const AllSellers = () => {
     const {data: allsellers = [], refetch} = useQuery({
         queryKey: ['allseller'],
         queryFn: async () =>{
-            const res = await fetch("http://localhost:5000/allsellers");
+            const res = await fetch("https://y-eta-one.vercel.app/allsellers");
             const data = await res.json();
             return data;
         }
     });
 
     const handleDeleteSeller = (seller) => {
-      fetch(`http://localhost:5000/seller/${seller._id}`, {
+      fetch(`https://y-eta-one.vercel.app/seller/${seller._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -28,7 +28,7 @@ const AllSellers = () => {
 
     const handleVerifySeller = (id) =>{
       console.log(id);
-      fetch(`http://localhost:5000/verify/${id}`, {
+      fetch(`https://y-eta-one.vercel.app/verify/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())

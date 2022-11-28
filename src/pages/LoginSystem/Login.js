@@ -54,7 +54,7 @@ const Login = () => {
     };
 
     const isUserAvailable = user =>{
-      fetch(`http://localhost:5000/users?email=${user?.email}`)
+      fetch(`https://y-eta-one.vercel.app/users?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -77,7 +77,7 @@ const Login = () => {
       };
       console.log(userInfo);
 
-      fetch("http://localhost:5000/users", {
+      fetch("https://y-eta-one.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -6,7 +6,7 @@ const ReportedItems = () => {
     const { data: reportedItems = [] } = useQuery({
       queryKey: ["reportedItems"],
       queryFn: async () => {
-        const res = await fetch("http://localhost:5000/reportedItems");
+        const res = await fetch("https://y-eta-one.vercel.app/reportedItems");
         const data = await res.json();
         return data;
       },

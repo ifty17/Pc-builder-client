@@ -28,7 +28,7 @@ const AllProduct = ({ product, setBookedProduct }) => {
 
   const handleReportedItems = (product) =>{
 
-     fetch("http://localhost:5000/reporteditems", {
+     fetch("https://y-eta-one.vercel.app/reporteditems", {
        method: "POST",
        headers: {
          "content-type": "application/json",

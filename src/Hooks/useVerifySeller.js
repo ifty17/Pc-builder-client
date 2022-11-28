@@ -5,7 +5,7 @@ const useVerifySeller = (email) =>{
      const [isVerifyLoading, setIsVerifyLoading] = useState(true);
      useEffect(() => {
        if (email) {
-         fetch(`http://localhost:5000/verify/${email}`)
+         fetch(`https://y-eta-one.vercel.app/verify/${email}`)
            .then((res) => res.json())
            .then((data) => {
              setIsSellerVerified(data.isSellerVerified);

@@ -34,7 +34,7 @@ const BookingModal = ({ bookedProduct, setBookedProduct }) => {
         meetingLocation,
       };
 
-      fetch("http://localhost:5000/orders", {
+      fetch("https://y-eta-one.vercel.app/orders", {
         method: "POST",
         headers: {
           "content-type": "application/json",

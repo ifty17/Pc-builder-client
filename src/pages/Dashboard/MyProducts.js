@@ -9,7 +9,7 @@ const MyProducts = () => {
   const [adv, setAdv] = useState([])
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/productsbyemail?email=${user?.email}`;
+    const url = `https://y-eta-one.vercel.app/productsbyemail?email=${user?.email}`;
 
     const { data: myProducts = [] } = useQuery({
       queryKey: ["products", user?.email],
@@ -40,7 +40,7 @@ const MyProducts = () => {
       //   years_used,
       // } = pro;
 
-       fetch("http://localhost:5000/advertise", {
+       fetch("https://y-eta-one.vercel.app/advertise", {
          method: "POST",
          headers: {
            "content-type": "application/json",

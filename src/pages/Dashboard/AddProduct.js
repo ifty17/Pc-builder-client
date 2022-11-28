@@ -59,7 +59,7 @@ const AddProduct = () => {
         };
         console.log(productInfo);
 
-        fetch("http://localhost:5000/products/add", {
+        fetch("https://y-eta-one.vercel.app/products/add", {
           method: "POST",
           headers: {
             "content-type": "application/json",

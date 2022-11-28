@@ -57,7 +57,7 @@ const SignUp = () => {
                        role,
                        image: data.data.display_url,
                      };
-                     fetch("http://localhost:5000/users", {
+                     fetch("https://y-eta-one.vercel.app/users", {
                        method: "POST",
                        headers: {
                          "content-type": "application/json",

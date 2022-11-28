@@ -7,7 +7,7 @@ const AllBuyers = () => {
      const { data: allbuyers = [], refetch } = useQuery({
        queryKey: ["allbuyers"],
        queryFn: async () => {
-         const res = await fetch("http://localhost:5000/allbuyers");
+         const res = await fetch("https://y-eta-one.vercel.app/allbuyers");
          const data = await res.json();
          return data;
        },
@@ -15,7 +15,7 @@ const AllBuyers = () => {
      console.log(allbuyers);
 
      const handleDeleteBuyer = buyer =>{
-      fetch(`http://localhost:5000/buyer/${buyer._id}`, {
+      fetch(`https://y-eta-one.vercel.app/buyer/${buyer._id}`, {
         method: "DELETE"
       })
       .then(res => res.json())
