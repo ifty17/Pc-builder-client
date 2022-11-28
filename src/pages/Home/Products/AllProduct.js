@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
+import useVerifySeller from "../../../Hooks/useVerifySeller";
+import { FaCheckCircle } from "react-icons/fa";
 
 const AllProduct = ({ product, setBookedProduct }) => {
+
+  const {user} = useContext(AuthContext);
+  const [isSellerVerified] = useVerifySeller(user?.email);
+  console.log(isSellerVerified);
+
   const {
     name,
     category_id,
@@ -26,9 +34,7 @@ const AllProduct = ({ product, setBookedProduct }) => {
         <div className="flex justify-between items-center">
           <h2 className="card-title">{name}</h2>
 
-          <button className="btn btn-xs btn-outline btn-primary">
-            Add to wishlist
-          </button>
+          <button className="btn btn-xs btn-outline">report</button>
         </div>
         <p>Selling price: ${resale_price}</p>
         <p>Original price: ${original_price}</p>
@@ -36,7 +42,14 @@ const AllProduct = ({ product, setBookedProduct }) => {
         <p>Seller contact number: {number}</p>
         <p>Years of user: {years_used} years</p>
         <p>Sell post date: {post_time}</p>
-        <p>Seller Name: {seller_name} </p>
+        <p>
+          Seller Name: {seller_name}
+          {isSellerVerified && (
+            <span>
+              <FaCheckCircle />
+            </span>
+          )}
+        </p>
         <p>Location: {location}</p>
         <p>Purchase Year: {purchaseYear}</p>
         <p> Details: {details}</p>

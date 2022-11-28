@@ -28,8 +28,8 @@ const AdvProduct = ({ products, setBookedProduct }) => {
           <div className="flex justify-between items-center">
             <h2 className="card-title">{name}</h2>
 
-            <button className="btn btn-xs btn-outline btn-primary">
-              Add to wishlist
+            <button className="btn btn-xs btn-outline">
+              Report
             </button>
           </div>
           <p>Selling price: ${resale_price}</p>
