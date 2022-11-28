@@ -1,10 +1,39 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import AdvModal from './AdvModal';
+import AdvProduct from './AdvProduct';
 
 const Advertised = () => {
+
+    const [bookedProduct, setBookedProduct] = useState(null);
+
+    const {data: advertisedProducts = [] } = useQuery({
+      queryKey: ['advproduct'],
+      queryFn: async () => {
+        const res = await fetch("http://localhost:5000/advproduct");
+        const data = await res.json();
+        return data;
+      },
+    });
+
     return (
-        <div>
-            
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
+          {advertisedProducts?.map((products) => (
+            <AdvProduct
+              key={products._id}
+              products={products}
+              setBookedProduct={setBookedProduct}
+            ></AdvProduct>
+          ))}
         </div>
+        {bookedProduct && (
+          <AdvModal
+            bookedProduct={bookedProduct}
+            setBookedProduct={setBookedProduct}
+          ></AdvModal>
+        )}
+      </section>
     );
 };
 

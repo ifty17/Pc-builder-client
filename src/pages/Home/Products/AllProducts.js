@@ -6,8 +6,7 @@ import BookingModal from './BookingModal';
 
 const AllProducts = () => {
 
-  const [bookedProduct, setBookedProduct] = useState(null)
-  const [addToWishlist, setAddToWishlist] = useState(null)
+  const [bookedProduct, setBookedProduct] = useState(null);
   console.log(bookedProduct);
 
     const {data: products = [] } = useQuery({
@@ -17,7 +16,7 @@ const AllProducts = () => {
             const data = await res.json();
             return data;
         }
-    })
+    });
 
     return (
       <section>
@@ -26,7 +25,6 @@ const AllProducts = () => {
             <AllProduct
               key={product._id}
               product={product}
-              setAddToWishlist={setAddToWishlist}
               setBookedProduct={setBookedProduct}
             ></AllProduct>
           ))}
