@@ -1,8 +1,8 @@
-Live site Link: 
+Live site Link: https://pcbuilder-504bc.web.app/
 
-Client Github: 
+Client Github: https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-ifty17
 
-server Github:
+server Github: https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-ifty17
 
 # Admin Email: iftyrahatkabir@gmail.com
 # Admin Password: ifty@123
