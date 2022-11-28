@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllBuyers = () => {
 
-     const { data: allbuyers = [] } = useQuery({
+     const { data: allbuyers = [], refetch } = useQuery({
        queryKey: ["allbuyers"],
        queryFn: async () => {
          const res = await fetch("http://localhost:5000/allbuyers");
@@ -12,6 +13,21 @@ const AllBuyers = () => {
        },
      });
      console.log(allbuyers);
+
+     const handleDeleteBuyer = buyer =>{
+      fetch(`http://localhost:5000/buyer/${buyer._id}`, {
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(data =>{
+        if (data.deletedCount) {
+          refetch();
+          toast.success(`Buyer ${buyer?.displayName} deleted successful`);
+        }
+      })
+
+     }
+
 
     return (
       <div className="overflow-x-auto">
@@ -29,10 +45,23 @@ const AllBuyers = () => {
             {allbuyers.map((buyer) => (
               <tr key={buyer._id}>
                 <th>1</th>
-                <td><img className='w-16 rounded-full' src={buyer?.image} alt="" /></td>
+                <td>
+                  <img
+                    className="w-16 rounded-full"
+                    src={buyer?.image}
+                    alt=""
+                  />
+                </td>
                 <td>{buyer.displayName}</td>
                 <td>{buyer.email}</td>
-                <td><button className='btn btn-xs btn-outline'>Delete Buyer</button></td>
+                <td>
+                  <button
+                    onClick={() => handleDeleteBuyer(buyer)}
+                    className="btn btn-xs btn-outline"
+                  >
+                    Delete Buyer
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
