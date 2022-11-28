@@ -20,7 +20,10 @@ const AllProducts = () => {
 
     return (
       <section>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
+        <div
+          
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5"
+        >
           {products.map((product) => (
             <AllProduct
               key={product._id}
@@ -29,13 +32,12 @@ const AllProducts = () => {
             ></AllProduct>
           ))}
         </div>
-        {
-          bookedProduct &&
+        {bookedProduct && (
           <BookingModal
-          bookedProduct={bookedProduct}
-          setBookedProduct={setBookedProduct}
+            bookedProduct={bookedProduct}
+            setBookedProduct={setBookedProduct}
           ></BookingModal>
-        }
+        )}
       </section>
     );
 };

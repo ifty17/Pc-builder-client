@@ -19,8 +19,11 @@ const AdvProduct = ({ products, setBookedProduct }) => {
   } = products;
 
   return (
-    <div>
-      <div className="card card-compact my-3   border bg-base-100 shadow-xl">
+    
+      <div
+        data-aos="zoom-in"
+        className="card card-compact my-3   border bg-base-100 shadow-xl"
+      >
         <figure>
           <img src={image} alt="Shoes" />
         </figure>
@@ -28,9 +31,7 @@ const AdvProduct = ({ products, setBookedProduct }) => {
           <div className="flex justify-between items-center">
             <h2 className="card-title">{name}</h2>
 
-            <button className="btn btn-xs btn-outline">
-              Report
-            </button>
+            <button className="btn btn-xs btn-outline">Report</button>
           </div>
           <p>Selling price: ${resale_price}</p>
           <p>Original price: ${original_price}</p>
@@ -44,7 +45,7 @@ const AdvProduct = ({ products, setBookedProduct }) => {
           <p> Details: {details}</p>
           <div className="card-actions justify-center">
             <label
-                onClick={() => setBookedProduct(products)}
+              onClick={() => setBookedProduct(products)}
               className="btn btn-outline btn-primary w-full"
               htmlFor="adv-modal"
             >
@@ -53,7 +54,6 @@ const AdvProduct = ({ products, setBookedProduct }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

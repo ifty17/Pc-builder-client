@@ -5,7 +5,7 @@ const CategoryOptions = ({category}) => {
     const {image} = category;
     return (
       <Link to={`/products/${category.category_id}`}>
-        <div className="card bg-base-100 shadow-2xl h-full border">
+        <div className="card bg-base-100 shadow-2xl h-full border" >
           <figure className="px-10 pt-10">
             <img
               src={image}

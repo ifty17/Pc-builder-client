@@ -26,7 +26,10 @@ const AllProduct = ({ product, setBookedProduct }) => {
   } = product;
 
   return (
-    <div className="card card-compact my-3   border bg-base-100 shadow-xl">
+    <div
+      data-aos="zoom-in"
+      className="card card-compact my-3   border bg-base-100 shadow-xl"
+    >
       <figure>
         <img src={image} alt="Shoes" />
       </figure>

@@ -20,6 +20,8 @@ const Category = () => {
         </div>
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 gap-5"
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
         >
           {categories.map((category) => (
             <CategoryOptions
