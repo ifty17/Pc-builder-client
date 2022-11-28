@@ -5,7 +5,7 @@ import slider3 from '../../../assets/sliderimg2.jpg'
 
 const Slider = () => {
     return (
-      <div>
+      <div data-aos="zoom-in-up">
         <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full">
             <img

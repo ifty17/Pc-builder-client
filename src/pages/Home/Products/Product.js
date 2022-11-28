@@ -19,16 +19,17 @@ const Product = ({ component, setBookingProduct }) => {
     } = component;
 
   return (
-    <div className="card card-compact my-3   border bg-base-100 shadow-xl">
+    <div
+      data-aos="zoom-in"
+      className="card card-compact my-3   border bg-base-100 shadow-xl"
+    >
       <figure>
         <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
         <div className="flex justify-between items-center">
           <h2 className="card-title">{name}</h2>
-          <button className="btn btn-xs btn-outline">
-            Report
-          </button>
+          <button className="btn btn-xs btn-outline">Report</button>
         </div>
         <p>Selling price: ${resale_price}</p>
         <p>Original price: ${original_price}</p>

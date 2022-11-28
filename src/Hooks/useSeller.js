@@ -10,7 +10,7 @@ const useSeller = email =>{
         .then(data =>{
             // console.log(data);
             setIsSeller(data);
-            setIsSellerLoading(data);
+            setIsSellerLoading(false);
         })
     },[email])
     return [isSeller, isSellerLoading];

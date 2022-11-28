@@ -38,13 +38,13 @@ const DashboardLayout = () => {
             <li>
               <Link to={"/dashboard"}>Dashboard Home</Link>
             </li>
-            { isBuyer.isBuyer &&
+            {isBuyer.isBuyer && (
               <li>
                 <Link to="/dashboard/myorders">My Orders</Link>
               </li>
-            }
-            
-            { isSeller.isSeller &&
+            )}
+
+            {isSeller.isSeller && (
               <>
                 <li>
                   <Link to="/dashboard/addproduct">Add a Product</Link>
@@ -53,9 +53,9 @@ const DashboardLayout = () => {
                   <Link to="/dashboard/myproducts">My Products</Link>
                 </li>
               </>
-            }
-            
-            {isAdmin &&
+            )}
+
+            {isAdmin && (
               <>
                 <li>
                   <Link to="/dashboard/allsellers">All Sellers</Link>
@@ -63,8 +63,11 @@ const DashboardLayout = () => {
                 <li>
                   <Link to="/dashboard/allbuyers">All Buyers</Link>
                 </li>
+                <li>
+                  <Link to="/dashboard/reporteditems">Reported Items</Link>
+                </li>
               </>
-            }
+            )}
           </ul>
         </div>
       </div>

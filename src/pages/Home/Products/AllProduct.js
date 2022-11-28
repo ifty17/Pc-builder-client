@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import useVerifySeller from "../../../Hooks/useVerifySeller";
 import { FaCheckCircle } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const AllProduct = ({ product, setBookedProduct }) => {
 
   const {user} = useContext(AuthContext);
   const [isSellerVerified] = useVerifySeller(user?.email);
-  console.log(isSellerVerified);
+  // console.log(isSellerVerified);
 
   const {
     name,
@@ -25,6 +26,27 @@ const AllProduct = ({ product, setBookedProduct }) => {
     post_time,
   } = product;
 
+  const handleReportedItems = (product) =>{
+
+     fetch("http://localhost:5000/reporteditems", {
+       method: "POST",
+       headers: {
+         "content-type": "application/json",
+       },
+       body: JSON.stringify(product),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         if (data.acknowledged) {
+           toast.success("Product reported to admin");
+           console.log(data);
+         } else {
+           toast.error(data.message);
+         }
+       });
+
+  }
+
   return (
     <div
       data-aos="zoom-in"
@@ -37,7 +59,7 @@ const AllProduct = ({ product, setBookedProduct }) => {
         <div className="flex justify-between items-center">
           <h2 className="card-title">{name}</h2>
 
-          <button className="btn btn-xs btn-outline">report</button>
+          <button onClick={() => handleReportedItems(product)} className="btn btn-xs btn-outline">report</button>
         </div>
         <p>Selling price: ${resale_price}</p>
         <p>Original price: ${original_price}</p>
