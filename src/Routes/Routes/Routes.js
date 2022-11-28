@@ -17,6 +17,7 @@ import Login from "../../pages/LoginSystem/Login";
 import SignUp from "../../pages/LoginSystem/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import BuyersRoute from "./BuyersRoute/BuyersRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
@@ -78,7 +79,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myorders",
-        element: <MyOrders></MyOrders>,
+        element: (
+          <BuyersRoute>
+            <MyOrders></MyOrders>
+          </BuyersRoute>
+        ),
       },
       {
         path: "/dashboard/addproduct",
