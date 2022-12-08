@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../Context/AuthProvider';
+import { AuthContext } from '../Context/AuthProvider';
 
-const Navbar = () => {
+const DashboardNav = () => {
+    const { user, logOut } = useContext(AuthContext);
 
-  const {user, logOut} = useContext(AuthContext);
-
-  const handleLogOut = () =>{
-     logOut()
-       .then(() => {})
-       .catch((error) => console.error(error));
-  }
+    const handleLogOut = () => {
+      logOut()
+        .then(() => {})
+        .catch((error) => console.error(error));
+    };
 
     const navItems = (
       <React.Fragment>
@@ -41,7 +40,7 @@ const Navbar = () => {
       <div>
         <div className="navbar bg-base-100 flex justify-between">
           <div className="navbar-start">
-            
+           
             <Link to="/" className="btn btn-ghost normal-case text-xl">
               PC Builder
             </Link>
@@ -50,7 +49,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal p-0">{navItems}</ul>
           </div>
           <label
-            htmlFor="my-drawer"
+            htmlFor="dashboard-drawer"
             tabIndex={2}
             className="btn btn-ghost lg:hidden"
           >
@@ -74,4 +73,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default DashboardNav;
