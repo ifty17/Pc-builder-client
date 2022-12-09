@@ -4,11 +4,14 @@ import AllProduct from './AllProduct';
 import { Link, useSearchParams } from 'react-router-dom';
 import BookingModal from './BookingModal';
 import { AuthContext } from '../../../Context/AuthProvider';
+import BookingModalLg from './BookingModalLg';
 
 const AllProducts = () => {
 
   const [bookedProduct, setBookedProduct] = useState(null);
-  console.log(bookedProduct);
+  const [bookedProductLg, setBookedProductLg] = useState(null);
+  console.log(bookedProductLg);
+  // console.log(bookedProduct);
 
     const {data: products = [] } = useQuery({
         queryKey:['products'],
@@ -83,13 +86,13 @@ const AllProducts = () => {
             </ul>
           </div>
         </div>
-        <section className='hidden lg:block'>
+        <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
             {products.map((product) => (
               <AllProduct
                 key={product._id}
                 product={product}
-                setBookedProduct={setBookedProduct}
+                setBookedProductLg={setBookedProductLg}
               ></AllProduct>
             ))}
           </div>
@@ -98,6 +101,12 @@ const AllProducts = () => {
               bookedProduct={bookedProduct}
               setBookedProduct={setBookedProduct}
             ></BookingModal>
+          )}
+          {bookedProductLg && (
+            <BookingModalLg
+              bookedProductLg={bookedProductLg}
+              setBookedProductLg={setBookedProductLg}
+            ></BookingModalLg>
           )}
         </section>
       </div>
