@@ -10,7 +10,7 @@ const AllProducts = () => {
 
   const [bookedProduct, setBookedProduct] = useState(null);
   const [bookedProductLg, setBookedProductLg] = useState(null);
-  console.log(bookedProductLg);
+  // console.log(bookedProductLg);
   // console.log(bookedProduct);
 
     const {data: products = [] } = useQuery({

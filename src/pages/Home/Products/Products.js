@@ -2,11 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Modal from './Modal';
+import ModalLg from './ModalLg';
 import Product from './Product';
 
 const Products = () => {
   const components = useLoaderData();
   const [bookingProduct, setBookingProduct] = useState(null);
+  const [bookedProductLg, setBookedProductLg] = useState(null);
+  console.log(bookedProductLg);
   // console.log(components);
 
 
@@ -82,15 +85,15 @@ const Products = () => {
             <Product
               key={component._id}
               component={component}
-              setBookingProduct={setBookingProduct}
+              setBookedProductLg={setBookedProductLg}
             ></Product>
           ))}
         </div>
-        {bookingProduct && (
-          <Modal
-            bookingProduct={bookingProduct}
-            setBookingProduct={setBookingProduct}
-          ></Modal>
+        {bookedProductLg && (
+          <ModalLg
+            bookedProductLg={bookedProductLg}
+            setBookedProductLg={setBookedProductLg}
+          ></ModalLg>
         )}
       </section>
     </div>
