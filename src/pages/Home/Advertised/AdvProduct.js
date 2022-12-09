@@ -21,7 +21,6 @@ const AdvProduct = ({ products, setBookedProduct }) => {
   return (
     
       <div
-        data-aos="zoom-in"
         className="card card-compact my-3   border bg-base-100 shadow-xl"
       >
         <figure>

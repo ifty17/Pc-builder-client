@@ -5,7 +5,6 @@ import Advertised from './Advertised/Advertised';
 import Category from './Category/Category';
 import Footer from './Footer/Footer';
 import HeroSection from './HeroSection/HeroSection';
-import Navbar from './Navbar/Navbar';
 import Slider from './Slider/Slider';
 
 const Home = () => {
@@ -46,27 +45,21 @@ const Home = () => {
       <div>
         <div className="drawer lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content lg:hidden">
+          <div className="drawer-content">
             <Slider></Slider>
             <Category></Category>
             <HeroSection></HeroSection>
             <Advertised></Advertised>
             <Footer></Footer>
-            {/* <label
-              htmlFor="my-drawer"
-              className="btn btn-primary drawer-button"
-            >
-              Open drawer
-            </label> */}
           </div>
-          <div className="drawer-side lg:hidden">
+          <div className="drawer-side">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 bg-base-100 text-base-content">
               <li>{navItems}</li>
             </ul>
           </div>
         </div>
-        <div className='hidden lg:block'>
+        <div className='sm:hidden lg:block'>
           <Slider></Slider>
           <Category></Category>
           <HeroSection></HeroSection>

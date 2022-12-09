@@ -10,7 +10,8 @@ const Category = () => {
         fetch("https://y-eta-one.vercel.app/categories")
           .then((res) => res.json())
           .then((data) => setCategories(data));
-    },[])
+    },[]);
+
 
     return (
       <div className="py-5">
@@ -20,8 +21,6 @@ const Category = () => {
         </div>
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 gap-5"
-          data-aos="fade-up"
-          data-aos-anchor-placement="bottom-bottom"
         >
           {categories.map((category) => (
             <CategoryOptions
