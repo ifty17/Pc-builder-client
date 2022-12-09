@@ -6,6 +6,7 @@ import Category from './Category/Category';
 import Footer from './Footer/Footer';
 import HeroSection from './HeroSection/HeroSection';
 import Slider from './Slider/Slider';
+import SliderLg from './Slider/SliderLg';
 
 const Home = () => {
    const { user, logOut } = useContext(AuthContext);
@@ -59,8 +60,8 @@ const Home = () => {
             </ul>
           </div>
         </div>
-        <div className='sm:hidden lg:block'>
-          <Slider></Slider>
+        <div className='hidden sm:hidden lg:block'>
+          <SliderLg></SliderLg>
           <Category></Category>
           <HeroSection></HeroSection>
           <Advertised></Advertised>
