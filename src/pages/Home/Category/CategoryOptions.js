@@ -9,7 +9,7 @@ const CategoryOptions = ({category}) => {
           <figure className="px-10 pt-10">
             <img
               src={image}
-              alt="Shoes"
+              alt="category"
               className="rounded-xl"
             />
           </figure>

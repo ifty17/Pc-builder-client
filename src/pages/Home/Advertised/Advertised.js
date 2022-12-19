@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../../../Context/AuthProvider';
+import Spinner from '../../Components/Spinner';
 import AdvModal from './AdvModal';
 import AdvProduct from './AdvProduct';
 
@@ -17,13 +16,15 @@ const Advertised = () => {
         return data;
       },
     });
+    console.log(advertisedProducts);
 
     return (
       <section>
         <h1 className="text-3xl text-center font-bold pt-10">
           Featured Products
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5 ">
+        {
+          advertisedProducts?.length ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5 ">
           {advertisedProducts?.map((products) => (
             <AdvProduct
               key={products._id}
@@ -31,7 +32,8 @@ const Advertised = () => {
               setBookedProduct={setBookedProduct}
             ></AdvProduct>
           ))}
-        </div>
+        </div> : <Spinner></Spinner>
+        }
         {bookedProduct && (
           <AdvModal
             bookedProduct={bookedProduct}
