@@ -16,7 +16,7 @@ const Advertised = () => {
         return data;
       },
     });
-    console.log(advertisedProducts);
+    // console.log(advertisedProducts);
 
     return (
       <section>

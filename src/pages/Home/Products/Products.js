@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import Spinner from '../../Components/Spinner';
 import Modal from './Modal';
 import ModalLg from './ModalLg';
 import Product from './Product';
@@ -54,7 +55,8 @@ const Products = () => {
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:hidden">
           <section>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
+            {
+              components?.length ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
               {components?.map((component) => (
                 <Product
                   key={component._id}
@@ -62,7 +64,8 @@ const Products = () => {
                   setBookingProduct={setBookingProduct}
                 ></Product>
               ))}
-            </div>
+            </div>: <Spinner></Spinner>
+            }
             {bookingProduct && (
               <Modal
                 bookingProduct={bookingProduct}

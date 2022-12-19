@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import BookingModal from './BookingModal';
 import { AuthContext } from '../../../Context/AuthProvider';
 import BookingModalLg from './BookingModalLg';
+import Spinner from '../../Components/Spinner';
 
 const AllProducts = () => {
 
@@ -62,15 +63,17 @@ const AllProducts = () => {
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content lg:hidden">
             <section>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
-                {products.map((product) => (
-                  <AllProduct
-                    key={product._id}
-                    product={product}
-                    setBookedProduct={setBookedProduct}
-                  ></AllProduct>
-                ))}
-              </div>
+              { products?.length ?
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:gap-5">
+                  {products.map((product) => (
+                    <AllProduct
+                      key={product._id}
+                      product={product}
+                      setBookedProduct={setBookedProduct}
+                    ></AllProduct>
+                  ))}
+                </div> : <Spinner></Spinner>
+              }
               {bookedProduct && (
                 <BookingModal
                   bookedProduct={bookedProduct}

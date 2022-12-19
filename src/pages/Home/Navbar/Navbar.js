@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const Navbar = () => {
 
   const {user, logOut} = useContext(AuthContext);
+  // console.log(user.photoURL);
 
   const handleLogOut = () =>{
      logOut()
@@ -30,9 +31,12 @@ const Navbar = () => {
               <Link to="/dashboard">Dashboard</Link>
 
               <button onClick={handleLogOut}>Logout</button>
+              <img className='rounded-full h-[50px]' src={user?.photoURL} alt="" />
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <>
+              <Link to="/login">Login</Link>
+            </>
           )}
         </li>
       </React.Fragment>
