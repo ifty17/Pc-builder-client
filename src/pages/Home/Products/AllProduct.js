@@ -93,7 +93,7 @@ const AllProduct = ({ product, setBookedProduct, setBookedProductLg }) => {
         <figure>
           <img className="w-[50%]" src={image} alt="Shoes" />
         </figure>
-        <div className="card-body">
+        <div className="card-body h-[70%] ">
           <div className="flex justify-between items-center">
             <h2 className="card-title">{name}</h2>
 

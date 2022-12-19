@@ -53,9 +53,9 @@ const Product = ({ component, setBookingProduct, setBookedProductLg }) => {
 
       <div className="card card-compact my-3 h-[100%]   border bg-base-100 shadow-xl hidden lg:block">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img className='w-[50%]' src={image} alt="Shoes" />
         </figure>
-        <div className="card-body">
+        <div className="card-body h-[70%]">
           <div className="flex justify-between items-center">
             <h2 className="card-title">{name}</h2>
             <button className="btn btn-xs btn-outline">Report</button>

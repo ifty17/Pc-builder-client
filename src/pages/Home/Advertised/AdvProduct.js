@@ -24,7 +24,7 @@ const AdvProduct = ({ products, setBookedProduct }) => {
         className="card card-compact my-3   border bg-base-100 shadow-xl"
       >
         <figure>
-          <img src={image} alt="Shoes" />
+          <img className="w-[50%]" src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <div className="flex justify-between items-center">
