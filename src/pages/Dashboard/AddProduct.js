@@ -78,8 +78,8 @@ const AddProduct = () => {
   };
 
   return (
-    <form onSubmit={handleAddProduct}>
-      <div className="space-y-4 className='mx-10'">
+    <form onSubmit={handleAddProduct} >
+      <div className=" w-[80%] md:grid grid-cols-3 gap-x-10 gap-y-5 items-center justify-center mx-auto">
         <div>
           <label htmlFor="email" className="block mb-2 text-sm">
             Product Name

@@ -7,11 +7,9 @@ import toast from "react-hot-toast";
 const AllProduct = ({ product, setBookedProduct, setBookedProductLg }) => {
   const { user } = useContext(AuthContext);
   const [isSellerVerified] = useVerifySeller(user?.email);
-  // console.log(isSellerVerified);
 
   const {
     name,
-    category_id,
     condition,
     image,
     resale_price,
@@ -91,9 +89,9 @@ const AllProduct = ({ product, setBookedProduct, setBookedProductLg }) => {
       </div>
 
 
-      <div className="card card-compact my-3   border bg-base-100 shadow-xl hidden lg:block">
+      <div className="card card-compact my-3 h-full border bg-base-100 shadow-xl hidden lg:block">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img className="w-[50%]" src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <div className="flex justify-between items-center">

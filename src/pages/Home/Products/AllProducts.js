@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import {useQuery} from '@tanstack/react-query';
 import AllProduct from './AllProduct';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BookingModal from './BookingModal';
 import { AuthContext } from '../../../Context/AuthProvider';
 import BookingModalLg from './BookingModalLg';
