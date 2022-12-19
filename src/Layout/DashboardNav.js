@@ -29,6 +29,11 @@ const DashboardNav = () => {
               <Link to="/dashboard">Dashboard</Link>
 
               <button onClick={handleLogOut}>Logout</button>
+              <img
+                className="rounded-full h-[50px]"
+                src={user?.photoURL}
+                alt=""
+              />
             </>
           ) : (
             <Link to="/login">Login</Link>
